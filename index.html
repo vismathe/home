@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon">
-    <title>Vismathe</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Vismathe Natural Farm</title>
 </head>
 <body>
-    <h1>VISMATE</h1>
+
+  <header class="header">
+    <div class="burger" id="burgerBtn">
+      <img src="media/icons/menu.png" alt="||">
+    </div>
+    <div class="logo">
+      <img class="logo-img" src="media/logo_noBG.png" alt="VISMATHE">
+    </div>
+    <div style="width:24px;"></div> <!-- placeholder so logo stays center -->
+  </header>
+
+  <nav class="side-menu" id="sideMenu">
+    <div class="close" id="closeBtn">
+        <img src="media/icons/close.png" alt="X">
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <div class="main">
+    <!-- Carousel Section -->
+    <div class="carousel" id="carousel">
+      <div class="carousel-inner" id="carouselInner">
+        <img src="media/BIG_IMG_01.png" alt="Farm Image 1" />
+        <img src="media/BIG_IMG_02.png" alt="Farm Image 2" />
+        <img src="media/BIG_IMG_03.png" alt="Farm Image 3" />
+      </div>
+      <div class="carousel-buttons">
+        <button id="prevBtn">
+          <img class="btn-icon" src="media/icons/left.png" alt="|">
+        </button>
+        <button id="nextBtn">
+          <img class="btn-icon" src="media/icons/right.png" alt="|">
+        </button>
+      </div>
+    </div>
+
+  <footer class="footer">
+    © 2025 Vismathe Natural Farm — All rights reserved.
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
