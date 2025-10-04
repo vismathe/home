@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
   <title>Vismathe Natural Farm</title>
 </head>
+
 <body>
-<!-- testDeploy -->
+
   <header class="header">
     <div class="burger" id="burgerBtn">
       <img src="media/icons/menu.png" alt="||">
@@ -20,7 +22,7 @@
 
   <nav class="side-menu" id="sideMenu">
     <div class="close" id="closeBtn">
-        <img src="media/icons/close.png" alt="X">
+      <img src="media/icons/close.png" alt="X">
     </div>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -30,7 +32,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  
+
   <div class="main">
     <!-- Carousel Section -->
     <div class="carousel" id="carousel">
@@ -49,9 +51,48 @@
       </div>
     </div>
 
-  <footer class="footer">
-    © 2025 Vismathe Natural Farm — All rights reserved.
-  </footer>
-  <script src="script.js"></script>
+    <footer class="footer">
+      © 2025 Vismathe Natural Farm — All rights reserved.
+    </footer>
+
+    <div class="footmenue">
+      <div class="home menu">
+        <a href="index.html">
+          <img src="media/icons/home.png" alt="HOME">
+        </a>
+      </div>
+      <div class="subscribe icons">
+        <a href="javascript:void(0)" id="openForm">
+          <img src="media/icons/whatsapp.png" alt="whatsapp">
+        </a>
+      </div>
+      <div class="contact icons">
+        <a href="#">
+          <img src="media/icons/msg.png" alt="msg">
+        </a>
+      </div>
+    </div>
+
+    <!-- Popup Form -->
+    <div id="popupForm" class="popup">
+      <div class="popup-content">
+        <span class="close-btn" id="closeForm">&times;</span>
+        <h2>Send WhatsApp Message</h2>
+        <form id="whatsappForm">
+          <label>Name</label>
+          <input type="text" id="name" placeholder="Your name" required>
+
+          <label>Where are you from?</label>
+          <input type="text" id="location" placeholder="City / Place" required>
+
+          <label>Message</label>
+          <textarea id="message" placeholder="Type your message..." required></textarea>
+
+          <button class="popup-button" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
