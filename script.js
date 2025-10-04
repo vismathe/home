@@ -45,6 +45,27 @@ setInterval(() => {
 // On window resize, re-update (so transform widths recalc)
 window.addEventListener('resize', updateCarousel)
 
+
+// main intro video play pause 
+
+const video = document.querySelector('.intro-vid');
+const btn = document.querySelector('.video-btn');
+
+btn.addEventListener('click', () => {
+  if(video.paused) {
+    video.play();
+    btn.style.background = 'rgba(255, 255, 255, 0.7)'
+  } else {
+    video.pause();
+    btn.style.background = 'rgba(245, 76, 76, 0.7)'
+  }
+});
+
+
+
+
+
+
 // Open Form
 document.getElementById('openForm').onclick = function () {
   document.getElementById('popupForm').style.display = 'flex'
