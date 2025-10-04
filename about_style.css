@@ -1,0 +1,228 @@
+/* ===== ABOUT US PAGE STYLING ===== */
+
+/* General Reset */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fdfdfc;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Section spacing */
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.about-hero {
+  text-align: center;
+  background: linear-gradient(rgba(22,61,40,0.8), rgba(22,61,40,0.8)), url("media/farm-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 80px 20px;
+  border-radius: 12px;
+}
+.about-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+.about-hero p {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+/* Section Headings */
+h2 {
+  font-size: 2.2rem;
+  color: #163d28;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+/* Decorative underline */
+h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #55aa77, #a4e0c3);
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Vision subheading */
+h3 {
+  color: #226644;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+/* Optional glowing effect for "Vision" */
+.vision-heading {
+  color: #163d28;
+  text-shadow: 0 2px 6px rgba(85, 170, 119, 0.4);
+  animation: visionGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes visionGlow {
+  from { text-shadow: 0 2px 6px rgba(85, 170, 119, 0.4); }
+  to { text-shadow: 0 4px 14px rgba(85, 170, 119, 0.8); }
+}
+
+/* Founder Section */
+.founder-section {
+  background: linear-gradient(135deg, #fdfdfc, #f5fff9);
+  border: 1px solid #e0e8e3;
+  border-radius: 18px;
+  padding: 40px 30px;
+  margin: 40px auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.founder-section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+}
+
+/* Founder Content Layout */
+.founder-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* Founder Photo */
+.founder-photo {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #55aa77;
+  box-shadow: 0 6px 20px rgba(85,170,119,0.4);
+  transition: all 0.4s ease;
+}
+.founder-photo:hover {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 10px 25px rgba(85,170,119,0.55);
+}
+
+/* Founder Name & Title */
+.founder-info h2 {
+  font-size: 2rem;
+  color: #163d28;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.founder-info h3 {
+  font-size: 1.2rem;
+  color: #55aa77;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+/* Founder Description */
+.founder-info p {
+  font-size: 1rem;
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Decorative Quote Style */
+.founder-quote {
+  margin-top: 20px;
+  font-style: italic;
+  color: #226644;
+  font-size: 1.1rem;
+  border-left: 4px solid #55aa77;
+  padding-left: 15px;
+}
+
+/* Philosophy / Product sections */
+/* Philosophy / Product sections */
+.farm-philosophy,
+.product-highlight {
+  background: linear-gradient(135deg, #fdfefc, #f3fff8);
+  border: 1px solid #e0f2e9;
+  border-radius: 16px;
+  padding: 30px 25px;
+  margin-top: 30px;
+  box-shadow: 0 4px 20px rgba(22, 61, 40, 0.08);
+  transition: all 0.3s ease;
+}
+
+
+/* Headings inside cards */
+.farm-philosophy h2,
+.product-highlight h2 {
+  font-size: 1.6rem;
+  color: #163d28;
+  margin-bottom: 15px;
+  border-left: 5px solid #55aa77;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+/* List Styling */
+.product-highlight ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+.product-highlight li {
+  margin-bottom: 12px;
+  padding-left: 28px;
+  position: relative;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Custom bullet icons */
+.product-highlight li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #55aa77;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+
+
+main{
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .founder-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .founder-photo {
+    margin-bottom: 15px;
+  }
+  .about-hero h1 {
+    font-size: 1.8rem;
+  }
+}
