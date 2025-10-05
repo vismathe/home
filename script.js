@@ -63,34 +63,86 @@ btn.addEventListener('click', () => {
 
 
 
-
-
-
 // Open Form
 document.getElementById('openForm').onclick = function () {
-  document.getElementById('popupForm').style.display = 'flex'
-}
+  document.querySelector('.popup').style.display = 'block';
+  document.getElementById('popupForm').style.display = 'flex';
+};
 
 // Close Form
 document.getElementById('closeForm').onclick = function () {
-  document.getElementById('popupForm').style.display = 'none'
-}
+  document.querySelector('.popup').style.display = 'none';
+  document.getElementById('popupForm').style.display = 'none';
+};
+
+// Preserve form data using localStorage
+const form = document.getElementById('whatsappForm');
+
+// Load saved data
+window.addEventListener('load', () => {
+  ['name', 'contact', 'location', 'message', 'bananaQty', 'coconutQty', 'copraQty'].forEach(id => {
+    if (localStorage.getItem(id)) document.getElementById(id).value = localStorage.getItem(id);
+  });
+  ['bananaSelect', 'coconutSelect', 'copraSelect'].forEach(id => {
+    document.getElementById(id).checked = localStorage.getItem(id) === 'true';
+  });
+});
+
+// Save data on input
+form.querySelectorAll('input, textarea, select').forEach(el => {
+  el.addEventListener('input', () => {
+    localStorage.setItem(el.id, el.type === 'checkbox' ? el.checked : el.value);
+  });
+});
 
 // Handle Submit
-document.getElementById('whatsappForm').onsubmit = function (e) {
-  e.preventDefault()
-  let name = document.getElementById('name').value
-  let location = document.getElementById('location').value
-  let message = document.getElementById('message').value
+form.onsubmit = function (e) {
+  e.preventDefault();
 
-  // Target WhatsApp Number (change this!)
-  let phoneNumber = '919844361528' // Example: 91 = India code
+  let name = document.getElementById('name').value.trim();
+  let contact = document.getElementById('contact').value.trim();
+  let location = document.getElementById('location').value.trim();
+  let message = document.getElementById('message').value.trim();
 
-  let finalMessage = `Hello, my name is ${name} from ${location}. ${message}`
-  let url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
-    finalMessage
-  )}`
+  // 🛒 Collect selected products
+  let products = [];
 
-  // Open WhatsApp
-  window.open(url, '_blank')
-}
+  if (document.getElementById('bananaSelect').checked) {
+    let qty = document.getElementById('bananaQty').value || 0;
+    products.push(`🍌 *Pooja Banana (Unripened)* — ₹60/kg × ${qty} kg`);
+  }
+
+  if (document.getElementById('coconutSelect').checked) {
+    let qty = document.getElementById('coconutQty').value || 0;
+    products.push(`🥥 *Peeled Brown Matured Coconut* — ₹50/piece × ${qty} pcs`);
+  }
+
+  if (document.getElementById('copraSelect').checked) {
+    let qty = document.getElementById('copraQty').value || 0;
+    products.push(`🌰 *Copra* — ₹550/kg × ${qty} kg`);
+  }
+
+  if (products.length === 0) {
+    alert('Please select at least one product before submitting.');
+    return;
+  }
+
+  // 🧾 Create order summary
+  let orderSummary = products.join('%0A');
+
+  // 📞 Business WhatsApp Number
+  let phoneNumber = '919844361528'; // Change this to your number
+
+  // 🧩 Final WhatsApp message
+  let finalMessage =
+    `Hello! 👋%0A` +
+    `My name is *${name}* (${contact}).%0A%0A` +
+    `🛒 *Order Summary*:%0A${orderSummary}%0A%0A` +
+    `📍 *Pickup Location:* ${location}%0A` +
+    (message ? `🗒️ *Additional Note:* ${message}%0A%0A` : ``) +
+    `Thank you for choosing *Vismathe Farm Fresh*! 🌿`;
+
+  // 🚀 Open WhatsApp chat
+  let url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${finalMessage}`;
+  window.open(url, '_blank');
+};

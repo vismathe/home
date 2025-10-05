@@ -233,36 +233,85 @@
 
 
     <!-- Popup Form -->
-    <div id="popupForm" class="popup">
+    <!-- Popup Container -->
+    <div class="popup" id="popupForm">
       <div class="popup-content">
-        <!-- Close Button -->
         <span class="close-btn" id="closeForm">&times;</span>
-
-        <!-- Header with placeholder icons -->
         <div class="popup-header">
           <h2>Place Your Order</h2>
-          <div class="product-icons">
-            <img src="media/icons/coconut.png" alt="Coconut Icon" class="icon">
-            <!-- <img src="media/icons/banana.png" alt="Banana Icon" class="icon"> -->
-          </div>
         </div>
+        <p class="popup-subtitle">Select your products and pickup point</p>
 
-        <p class="popup-subtitle">Currently delivering to Bengaluru & Sanjayanagara only.</p>
-
-        <!-- Form -->
         <form id="whatsappForm">
           <label for="name">Name</label>
           <input type="text" id="name" placeholder="Your name" required>
 
-          <label for="location">Where are you from?</label>
+          <label for="contact">Contact Number</label>
+          <input type="tel" id="contact" placeholder="Your phone number" pattern="[0-9]{10}" required>
+
+          <label>Choose Products</label>
+
+          <div class="product-selection">
+
+            <!-- Pooja Banana (Unripened) -->
+            <div class="product-card">
+              <img src="media/form_product_banana.png" alt="Pooja Banana">
+              <div class="product-info">
+                <h3>Pooja Banana (Unripened)</h3>
+                <p class="price">₹60 per kg</p>
+                <input type="number" min="0" id="bananaQty" placeholder="Quantity (kg)">
+                <div class="product-actions">
+                  <label><input type="checkbox" id="bananaSelect"> Select</label>
+                  <a href="product.html#banana" target="_blank" class="read-more">Read More</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Peeled Brown Matured Coconut -->
+            <div class="product-card">
+              <img src="media/form_product_coconut.png" alt="Peeled Brown Matured Coconut">
+              <div class="product-info">
+                <h3>Peeled Brown Matured Coconut</h3>
+                <p class="price">₹50 per piece</p>
+                <input type="number" min="0" id="coconutQty" placeholder="Quantity (pieces)">
+                <div class="product-actions">
+                  <label><input type="checkbox" id="coconutSelect"> Select</label>
+                  <a href="product.html#coconut" target="_blank" class="read-more">Read More</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Copra -->
+            <div class="product-card">
+              <img src="media/form_product_copra.png" alt="Copra">
+              <div class="product-info">
+                <h3>Copra</h3>
+                <p class="price">₹550 per kg</p>
+                <input type="number" min="0" id="copraQty" placeholder="Quantity (kg)">
+                <div class="product-actions">
+                  <label><input type="checkbox" id="copraSelect"> Select</label>
+                  <a href="product.html#copra" target="_blank" class="read-more">Read More</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <label for="location">Pickup Point</label>
           <select id="location" required>
-            <option value="" disabled selected>Select your area</option>
-            <option value="Bengaluru">Bengaluru</option>
-            <option value="Sanjayanagara">Sanjayanagara</option>
+            <option value="" disabled selected>Select pickup point</option>
+            <option value="RMV club, boulevard park, Sanjayanagara, Bangalore">
+              RMV Club – Sanjayanagara
+            </option>
+            <option value="Back gate, Veterinary College Campus, Sanjayanagara, Bengaluru">
+              Veterinary College – Back Gate
+            </option>
           </select>
 
-          <label for="message">Message / Order Details</label>
-          <textarea id="message" placeholder="Type your message..." required></textarea>
+          <label for="message">Message / Additional Notes</label>
+          <textarea id="message" placeholder="Any special instructions..."></textarea>
 
           <button class="popup-button" type="submit">Send Order</button>
         </form>
