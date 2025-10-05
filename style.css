@@ -736,24 +736,42 @@ select:focus {
 /* Product Actions */
 .product-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/* Hide the default checkbox */
+.product-actions input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 120px;
+  height: 45px;
+  border-radius: 50px;
+  background:linear-gradient(to left, #bb8c65, rgb(168, 137, 78)); /* red */
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  line-height: 45px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.product-actions label {
-  font-size: 0.9rem;
-  color: #163d28;
+/* Change look when checked */
+.product-actions input[type="checkbox"]:checked {
+  background:linear-gradient(to left, #347242, rgb(56, 161, 56)); /* green */
 }
 
-.read-more {
-  font-size: 0.85rem;
-  color: #55aa77;
-  text-decoration: none;
-  font-weight: 600;
+/* Change label text based on state */
+.product-actions input[type="checkbox"]::before {
+  content: "Add Item";
 }
 
-.read-more:hover {
-  text-decoration: underline;
+.product-actions input[type="checkbox"]:checked::before {
+  content: "Added";
 }
 
 /* Responsive Design for Small Screens */
