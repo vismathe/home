@@ -119,7 +119,7 @@ form.onsubmit = function (e) {
 
   if (document.getElementById('copraSelect').checked) {
     let qty = document.getElementById('copraQty').value || 0;
-    products.push(`🌰 *Copra* — ₹550/kg × ${qty} kg`);
+    products.push(`🌰 *Copra* — ₹300/kg × ${qty} kg`);
   }
 
   if (products.length === 0) {
